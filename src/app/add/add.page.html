@@ -1,0 +1,32 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add New Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Item name</ion-label>
+    <ion-input [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Item Place</ion-label>
+    <ion-input [(ngModel)]="place"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">image URL</ion-label>
+    <ion-input [(ngModel)]="imageURL"></ion-input>
+  </ion-item>
+
+  <ion-button>
+    <ion-button color="secondary" expand="block">Add</ion-button>
+  </ion-button>
+  
+
+</ion-content>
