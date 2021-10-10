@@ -8,5 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <p>the id of this task is {{id}}</p>
+  <ion-card *ngIf="todoItem">
+    <img [src] = "todoItem.image_Url"/>
+    <ion-card-header>
+      <ion-card-subtitle>Things to Do:</ion-card-subtitle>
+      <ion-card-title>{{todoItem.name}}</ion-card-title>
+    </ion-card-header>
+
+  <ion-card-content>
+    {{todoItem.location}}
+  </ion-card-content>
+ 
+  </ion-card>  
+ <p>{{id}}</p>
+  <p style="text-align:center">
+    <ion-button color="danger" (click)="deleteItem()">Delete Item</ion-button>
+  </p>
 </ion-content>

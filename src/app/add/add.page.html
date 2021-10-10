@@ -21,11 +21,11 @@
 
   <ion-item>
     <ion-label position="floating">image URL</ion-label>
-    <ion-input [(ngModel)]="imageURL"></ion-input>
+    <ion-input [(ngModel)]="image_Url"></ion-input>
   </ion-item>
 
   <ion-button>
-    <ion-button color="secondary" expand="block">Add</ion-button>
+    <ion-button color="secondary" expand="block" (click)="addNewItem()">Add</ion-button>
   </ion-button>
   
 

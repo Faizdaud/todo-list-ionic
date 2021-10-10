@@ -1,31 +1,33 @@
 import { Injectable } from '@angular/core';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class LocalService {
 
-  todoList = [{
-    "id": 1,
-    "name": "Exercise",
-    "location": "Gym",
-    "image_Url": "data:image/png;base64,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",
-    "time": "8:30am"
-  },
-   {
-    "id": 2,
-    "name": "Watch TV",
-    "location": "Home",
-    "image_Url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAADpCAMAAABx2AnXAAAAqFBMVEX///8AAAAREiTa2tvf399MTEz19fUlJSXJycl9fX0NDQ15eXkODyKpqanPz89QUFBWVlYAABezs7Onp6cAABoAABMAABwAABhcXFxeXl6ZmZmUlJru7u4pKjgAAA68vLweHh5qamoXFxczMzOFhYUtLS2VlZxBQUxtbnYAAB8nKDcYGCp3d36jpKuFho1SUlw0M0BKSlRiY2seHy1+f4dNUFlcXGYvMT7EG2M+AAAFQ0lEQVR4nO3bC1uiShzHcQfL054zWhpgOaG1F5gQQYHw/b+zgzu2DmhRCcNlf59nN00eL9+dP+TTYq8HAAAAAAAAAAAAAAAAAAAAAAAAAH+hi4u6X0ElFo+EPC7qfhXlm5DfJnW/jrLtuzpX9qerY2VSV6fKMl0dKst1dabsqKsjZSe6OlEmdd3ddahM6roeDK47UyZ1XQ56vcFlR8rkLnFLN8oycyhu6sQ05uZQ6MA0Do/mUJDKhnW9tnNIXdcDeYM8jS0sOzmHQqunUV6v463tXbP3u9pbduI4n9XSo/6kYL122lhWNIdC+6axcA6F1k3jR+ZQaFfZx+ZQaNM0Sl0378yhMLhpTdnH51BoyzR+Zg6Fdkzjp+ZQaMU0fvA4n9WCo/7n51Bo+jR+YQ6Fhk/jZ4+HsiZPo7xen793c9fsvK7mlp0zh0Izp/Hc9dpp4pqV0dXEsi8f57Mad9QvZ712mlVWXlezykqaQ6FB01jmeu00pey25K5M2W05j/gVZa/XThPWrIquJpSVP4dC3dModd2V+8h3tZZJc0hKPnP0Qnpo5dMorVelYarXLNNVaZjasiFRF6ZyGrPrVXWYujXLd1UdpqpsmH/eysPUTOPReikIU7FmUtfTZbVhl08KyzLvo66rDbtW+O5K6ro/nBVV1Yr1eveKynLvD6sPU/S+cZHtUhEml1X3iZ/v8hz21IRJ0/i93Kc5eMiul6Iwac0eyn2ePwa5LkVhh7Kzfw32lnt5DnvKwo6et3QPj9nHLwp7mP33jtlbk3UUJsoeq5rE1GB2/yT9L09B2Im3RlkF95POJJ483c8qG8RjBWE/isJ+nL7fiTDF3g/rF3UR0j95x6aHXRWHXZ28I8Iqg7Buhj2Njjx1Iuzb8aZvCKsHwvIQVhOE5SGsJgjLQ1hNEJaHsJogLA9hNUFYHsJqgrA8hNUEYXkIqwnC8hBWE4TlIawmCMtDWE3+0rBRcdjo5B2bE/bvaeTNzW9vkTfXH1YRhCHso26KX9w5Sv1I66ec+PxOmWr8hHfhOaTneOP8UzV+/vqnIr9+1tmVGlSk5iwAAAAAAAAAAAAAAAAAAAAAAACAOvQ7qlflOaJ16mkdhbC22YfR/V9NutQ03dTo4bv0GtUP3zacCKMO1agVievr5X7bOAkMy3lNWW4odZNtW8pEmBmG+tgfG2NtahB/qRvGVDfIcLVa8RkxCKE6IdsRIWvfaVoYzVwc7FcsYkYUeywmMfNie8tsb7N66b8Qwh8S1h9ZTr+/uXL6lrNWGUapnr7i/Vf99bvd3kHFtd9fTW26uzTN/c1ymGawJefemPOQEP+ZaYR7wdwZXcScuSMSDhcOsR76uk6VdgWB97zUo2ViuFOaMCcYu0akeWmkO7bSjsjgLyuXBdwLWeT7gc1t7q0MOUwPEz+xQ+45uuHT2Xwc+htzTsx+zDYTsp5czQ3rYhSpnUPqer4/Slgy4b63SuJg5fseCxYh8Xkcc3tlb2LTdhZ8wsJbx2YkNphjeVM5jNKVFzFquTaNkpAnGksC0+YsHb9tny88NvGcq01/rjQsnSPO/IBtVn5a6PiebXuMBas4skPGfc4C3wntwGZ2Gurb9trbeHG8/9d//Tlm8si0fE93fW8ektCPtlsasHhqJJtnFhpzzixOPMWHDupqU8dcR5bpTF3qGFvqzNdRZKWXhjON3OVGW67H26W5TjdsI5fqztjK7mNpWbrbTdO9c6xrumaOd3umaUyplu5WRjrOupHuusp/ionDhDhIvF4TXg8j+z/7jYdjR+ffeXQPwtrmf1Tek0ZazGmyAAAAAElFTkSuQmCC",
-    "time": "9:00pm"
-  },
-  {
-    "id": 3,
-    "name": "Clean Room",
-    "location": "Home",
-    "image_Url": "data:image/png;base64,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",
-    "time": "5:00pm"
-  }
+  todoList = [
+//     "id": 1,
+//     "name": "Exercise",
+//     "location": "Gym",
+//     "image_Url": "https://ca-times.brightspotcdn.com/dims4/default/f30199f/2147483647/strip/true/crop/4873x3367+0+0/resize/840x580!/format/webp/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F91%2Fc3%2F513dd6cc466ba548afefb1ea43d7%2F491555-fi-century-plaza-towers-full-jja-0006.JPG",
+//     "time": "8:30am"
+//   },
+//    {
+//     "id": 2,
+//     "name": "Watch TV",
+//     "location": "Home",
+//     "image_Url": "https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg",
+//     "time": "9:00pm"
+//   },
+//   {
+//     "id": 3,
+//     "name": "Clean Room",
+//     "location": "Home",
+//     "image_Url": "https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg",
+//     "time": "5:00pm"
+//   }
 ];
 
   constructor() {}
@@ -33,26 +35,80 @@ export class LocalService {
     //Create
       addItem(newItem){
         this.todoList.push(newItem);
+        console.log(this.todoList);
+        //save to to local browser/mobile app storage with the file name "todos", but change the JSON into a string 
+        //local storage only accepts string
+        localStorage.setItem("todos", JSON.stringify(this.todoList));
       }
 
     //Read
       readAllItems(){
+        // return this.todoList;
+
+        //read/retrive list from "todo" file located inside browser/mobile app local storage
+        //save data into todos variable
+        let todos = JSON.parse(localStorage.getItem("todos"));
+        //default if() without an operator in the () is either true or false
+        if (todos){
+          this.todoList = todos;
+        }else {
+          this.todoList = [];
+        }
         return this.todoList;
+
       }
 
       readAnItem(id) {
+          // this.todoList = JSON.parse(localStorage.getItem("todos"));
         for(var i=0; i<this.todoList.length; i++){
-          if(this.todoList[i].id == id ){
+          if(this.todoList[i].id == parseInt(id) ){
             return this.todoList[i];
           }        
         }
         return null;
       }
 
+      // let searchItem = this.todoList.filter(val=>{
+      //   return val.id === parseInt(id);
+      // })
+      // console.log(searchItem);
+      // console.log(searchItem[0]);
+      // return searchItem[0];
+    // }
+
     //Update
 
    
 
     //Delete
+    deleteItem(id){
+      // //filter object
+      // let filteredItem = this.todoList.filter(val=> {
+      //   return val.id === parseInt(id);
+      // })
+      this.todoList = this.todoList.filter(val=> {
+        return val.id !== parseInt(id);
+      });
+
+      localStorage.setItem("todos", JSON.stringify(this.todoList));
+
+
+
+      //delete object from array  
+    }
+
+    getCurrentId(){
+      //todoList = array (objects inside)
+      //check if todoList exists
+      //If not return id =1
+
+        if(!this.todoList.length){
+          return 1;
+        }else {
+          return this.todoList[this.todoList.length-1].id + 1; 
+        }
+      
+  
+    }
   }
 
